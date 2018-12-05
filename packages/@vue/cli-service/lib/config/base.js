@@ -163,14 +163,14 @@ module.exports = (api, options) => {
 
     webpackConfig
       .plugin('case-sensitive-paths')
-        .use(require('case-sensitive-paths-webpack-plugin'))
+        .use(require('@vue/cli-service-dependencies')['case-sensitive-paths-webpack-plugin'])
 
     // friendly error plugin displays very confusing errors when webpack
     // fails to resolve a loader, so we provide custom handlers to improve it
     const { transformer, formatter } = require('../util/resolveLoaderError')
     webpackConfig
       .plugin('friendly-errors')
-        .use(require('friendly-errors-webpack-plugin'), [{
+        .use(require('@vue/cli-service-dependencies')['friendly-errors-webpack-plugin'], [{
           additionalTransformers: [transformer],
           additionalFormatters: [formatter]
         }])

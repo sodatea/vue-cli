@@ -277,7 +277,7 @@ module.exports = (api, options) => {
     if (!isLegacyBundle && fs.existsSync(publicDir)) {
       webpackConfig
         .plugin('copy')
-          .use(require('copy-webpack-plugin'), [[{  // eslint-disable-line
+          .use(require('@vue/cli-service-dependencies')['copy-webpack-plugin'], [[{  // eslint-disable-line
             from: publicDir,
             to: outputDir,
             toType: 'dir',

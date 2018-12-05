@@ -17,5 +17,10 @@ module.exports = {
   'read-pkg': require('read-pkg'),
   'semver': require('semver'),
   'ssri': require('ssri'),
-  'string.prototype.padend': require('string.prototype.padend')
+  'string.prototype.padend': require('string.prototype.padend'),
+  'friendly-errors-webpack-plugin': require('friendly-errors-webpack-plugin'),
+  'case-sensitive-paths-webpack-plugin': require('case-sensitive-paths-webpack-plugin'),
+  'webpack-merge': require('webpack-merge'),
+  'copy-webpack-plugin': require('copy-webpack-plugin'),
+  'terser-webpack-plugin': require('terser-webpack-plugin')
 }

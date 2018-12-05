@@ -29,13 +29,10 @@
     "@vue/web-component-wrapper": "^1.2.0",
     "autoprefixer": "^8.6.5",
     "cache-loader": "^1.2.5",
-    "case-sensitive-paths-webpack-plugin": "^2.1.2",
-    "copy-webpack-plugin": "^4.6.0",
     "clipboardy": "^1.2.3",
     "css-loader": "^1.0.1",
     "cssnano": "^4.1.7",
     "file-loader": "^2.0.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.5",
     "postcss-loader": "^3.0.0",
@@ -46,8 +43,6 @@
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-chain": "^4.11.0",
     "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.1.4",
-    "terser-webpack-plugin": "^1.1.0",
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {
