@@ -1,7 +1,7 @@
 jest.setTimeout(60000)
 
 const path = require('path')
-const fs = require('fs-extra')
+const fs = require('@vue/cli-service-dependencies')['fs-extra']
 const { defaultPreset } = require('@vue/cli/lib/options')
 const create = require('@vue/cli-test-utils/createTestProject')
 const serve = require('@vue/cli-test-utils/serveWithPuppeteer')

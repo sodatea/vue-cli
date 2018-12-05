@@ -1,4 +1,5 @@
 const {
+  chalk,
   info,
   hasProjectYarn,
   openBrowser,
@@ -34,13 +35,12 @@ module.exports = (api, options) => {
 
     const url = require('url')
     const path = require('path')
-    const chalk = require('chalk')
     const webpack = require('webpack')
     const WebpackDevServer = require('webpack-dev-server')
-    const portfinder = require('portfinder')
+    const portfinder = require('@vue/cli-service-dependencies')['portfinder']
     const prepareURLs = require('../util/prepareURLs')
     const prepareProxy = require('../util/prepareProxy')
-    const launchEditorMiddleware = require('launch-editor-middleware')
+    const launchEditorMiddleware = require('@vue/cli-service-dependencies')['launch-editor-middleware']
     const validateWebpackConfig = require('../util/validateWebpackConfig')
     const isAbsoluteUrl = require('../util/isAbsoluteUrl')
 

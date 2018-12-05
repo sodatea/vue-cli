@@ -5,7 +5,7 @@
 'use strict'
 
 const path = require('path')
-const fs = require('fs-extra')
+const fs = require('@vue/cli-service-dependencies')['fs-extra']
 const webpack = require('webpack')
 const { IpcMessenger } = require('@vue/cli-shared-utils')
 const { analyzeBundle } = require('./analyzeBundle')

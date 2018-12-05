@@ -1,4 +1,4 @@
-const fs = require('fs-extra')
+const fs = require('@vue/cli-service-dependencies')['fs-extra']
 
 module.exports = class MovePlugin {
   constructor (from, to) {

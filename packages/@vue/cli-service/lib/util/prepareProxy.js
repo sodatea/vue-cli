@@ -9,8 +9,8 @@
 const fs = require('fs')
 const url = require('url')
 const path = require('path')
-const chalk = require('chalk')
-const address = require('address')
+const address = require('@vue/cli-service-dependencies')['address']
+const { chalk } = require('@vue/cli-shared-utils')
 
 const defaultConfig = {
   logLevel: 'silent',

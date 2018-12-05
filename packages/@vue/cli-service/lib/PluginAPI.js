@@ -1,5 +1,5 @@
 const path = require('path')
-const hash = require('hash-sum')
+const hash = require('@vue/cli-service-dependencies')['hash-sum']
 const { matchesPluginId } = require('@vue/cli-shared-utils')
 
 // Note: if a plugin-registered command needs to run in a specific default mode,

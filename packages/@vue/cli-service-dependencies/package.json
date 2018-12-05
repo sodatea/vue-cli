@@ -1,0 +1,59 @@
+{
+  "name": "@vue/cli-service-dependencies",
+  "version": "3.2.1",
+  "description": "bundled dependencies for @vue/cli-service",
+  "keywords": [
+    "vue",
+    "cli"
+  ],
+  "author": "Haoqun Jiang <haoqunjiang@gmail.com>",
+  "homepage": "https://cli.vuejs.org/",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuejs/vue-cli.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "extract": "node scripts/extract-dep.js",
+    "build": "node scripts/build.js",
+    "prepublishOnly": "yarn build"
+  },
+  "bugs": {
+    "url": "https://github.com/vuejs/vue-cli/issues"
+  },
+  "devDependencies": {
+    "@zeit/ncc": "^0.3.0",
+    "acorn": "^6.0.4",
+    "acorn-walk": "^6.1.1",
+    "address": "^1.0.3",
+    "cliui": "^4.1.0",
+    "debug": "^4.1.0",
+    "fs-extra": "^7.0.1",
+    "globby": "^8.0.1",
+    "hash-sum": "^1.0.2",
+    "launch-editor-middleware": "^2.2.1",
+    "lodash.defaultsdeep": "^4.6.0",
+    "lodash.mapvalues": "^4.6.0",
+    "lodash.transform": "^4.6.0",
+    "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "ora": "^3.0.0",
+    "portfinder": "^1.0.19",
+    "read-pkg": "^4.0.1",
+    "semver": "^5.6.0",
+    "ssri": "^6.0.1",
+    "string.prototype.padend": "^3.0.0"
+  }
+}

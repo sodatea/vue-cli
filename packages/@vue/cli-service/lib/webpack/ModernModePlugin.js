@@ -1,4 +1,4 @@
-const fs = require('fs-extra')
+const fs = require('@vue/cli-service-dependencies')['fs-extra']
 const path = require('path')
 
 // https://gist.github.com/samthor/64b114e4a4f539915a95b91ffd340acc

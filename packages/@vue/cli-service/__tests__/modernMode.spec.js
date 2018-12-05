@@ -1,8 +1,8 @@
 jest.setTimeout(50000)
 
-const fs = require('fs-extra')
+const fs = require('@vue/cli-service-dependencies')['fs-extra']
 const path = require('path')
-const portfinder = require('portfinder')
+const portfinder = require('@vue/cli-service-dependencies')['portfinder']
 const { createServer } = require('http-server')
 const { defaultPreset } = require('@vue/cli/lib/options')
 const create = require('@vue/cli-test-utils/createTestProject')

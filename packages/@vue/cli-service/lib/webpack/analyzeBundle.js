@@ -1,10 +1,11 @@
 // From https://github.com/webpack-contrib/webpack-bundle-analyzer/blob/ba3dbd71cec7becec0fbf529833204425f66efde/src/parseUtils.js
 // Modified by Guillaume Chau (Akryum)
 
-const acorn = require('acorn')
-const walk = require('acorn-walk')
-const mapValues = require('lodash.mapvalues')
-const transform = require('lodash.transform')
+const bundledDeps = require('@vue/cli-service-dependencies')
+const acorn = bundledDeps['acorn']
+const walk = bundledDeps['acorn-walk']
+const mapValues = bundledDeps['lodash.mapvalues']
+const transform = bundledDeps['lodash.transform']
 const zlib = require('zlib')
 const { warn } = require('@vue/cli-shared-utils')
 

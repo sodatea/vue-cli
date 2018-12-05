@@ -1,6 +1,6 @@
-const chalk = require('chalk')
-const padEnd = require('string.prototype.padend')
+const padEnd = require('@vue/cli-service-dependencies')['string.prototype.padend']
 const getPadLength = require('../util/getPadLength')
+const { chalk } = require('@vue/cli-shared-utils')
 
 module.exports = (api, options) => {
   api.registerCommand('help', args => {

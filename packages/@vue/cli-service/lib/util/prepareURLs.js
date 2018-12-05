@@ -7,8 +7,8 @@
  */
 
 const url = require('url')
-const chalk = require('chalk')
-const address = require('address')
+const address = require('@vue/cli-service-dependencies')['address']
+const { chalk } = require('@vue/cli-shared-utils')
 
 module.exports = function prepareUrls (protocol, host, port, pathname = '/') {
   const formatUrl = hostname =>

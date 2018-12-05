@@ -8,7 +8,7 @@ module.exports = class CorsPlugin {
   apply (compiler) {
     const ID = `vue-cli-cors-plugin`
     compiler.hooks.compilation.tap(ID, compilation => {
-      const ssri = require('ssri')
+      const ssri = require('@vue/cli-service-dependencies')['ssri']
 
       const computeHash = url => {
         const filename = url.replace(this.baseUrl, '')

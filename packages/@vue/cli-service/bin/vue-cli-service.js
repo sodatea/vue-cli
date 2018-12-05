@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const semver = require('semver')
+const semver = require('@vue/cli-service-dependencies')['semver']
 const { error } = require('@vue/cli-shared-utils')
 const requiredVersion = require('../package.json').engines.node
 
@@ -16,7 +16,7 @@ const Service = require('../lib/Service')
 const service = new Service(process.env.VUE_CLI_CONTEXT || process.cwd())
 
 const rawArgv = process.argv.slice(2)
-const args = require('minimist')(rawArgv, {
+const args = require('@vue/cli-service-dependencies')['minimist'](rawArgv, {
   boolean: [
     // build
     'modern',

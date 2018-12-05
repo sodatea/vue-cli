@@ -126,7 +126,7 @@ module.exports = (api, options) => {
               return chunk.name
             }
 
-            const hash = require('hash-sum')
+            const hash = require('@vue/cli-service-dependencies')['hash-sum']
             const joinedHash = hash(
               Array.from(chunk.modulesIterable, m => m.id).join('_')
             )
@@ -277,7 +277,7 @@ module.exports = (api, options) => {
     if (!isLegacyBundle && fs.existsSync(publicDir)) {
       webpackConfig
         .plugin('copy')
-          .use(require('copy-webpack-plugin'), [[{
+          .use(require('copy-webpack-plugin'), [[{  // eslint-disable-line
             from: publicDir,
             to: outputDir,
             toType: 'dir',

@@ -1,0 +1,21 @@
+module.exports = {
+  'acorn': require('acorn'),
+  'acorn-walk': require('acorn-walk'),
+  'address': require('address'),
+  'cliui': require('cliui'),
+  'debug': require('debug'),
+  'fs-extra': require('fs-extra'),
+  'globby': require('globby'),
+  'hash-sum': require('hash-sum'),
+  'launch-editor-middleware': require('launch-editor-middleware'),
+  'lodash.defaultsdeep': require('lodash.defaultsdeep'),
+  'lodash.mapvalues': require('lodash.mapvalues'),
+  'lodash.transform': require('lodash.transform'),
+  'minimist': require('minimist'),
+  'ora': require('ora'),
+  'portfinder': require('portfinder'),
+  'read-pkg': require('read-pkg'),
+  'semver': require('semver'),
+  'ssri': require('ssri'),
+  'string.prototype.padend': require('string.prototype.padend')
+}

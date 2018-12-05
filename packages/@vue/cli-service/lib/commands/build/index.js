@@ -80,13 +80,13 @@ module.exports = (api, options) => {
 }
 
 async function build (args, api, options) {
-  const fs = require('fs-extra')
+  const fs = require('@vue/cli-service-dependencies')['fs-extra']
   const path = require('path')
-  const chalk = require('chalk')
   const webpack = require('webpack')
   const formatStats = require('./formatStats')
   const validateWebpackConfig = require('../../util/validateWebpackConfig')
   const {
+    chalk,
     log,
     done,
     info,
