@@ -2,8 +2,12 @@ module.exports = {
   'acorn': require('acorn'),
   'acorn-walk': require('acorn-walk'),
   'address': require('address'),
+  'case-sensitive-paths-webpack-plugin': require('case-sensitive-paths-webpack-plugin'),
   'cliui': require('cliui'),
+  'copy-webpack-plugin': require('copy-webpack-plugin'),
   'debug': require('debug'),
+  'file-loader': require('file-loader'),
+  'friendly-errors-webpack-plugin': require('friendly-errors-webpack-plugin'),
   'fs-extra': require('fs-extra'),
   'globby': require('globby'),
   'hash-sum': require('hash-sum'),
@@ -18,9 +22,8 @@ module.exports = {
   'semver': require('semver'),
   'ssri': require('ssri'),
   'string.prototype.padend': require('string.prototype.padend'),
-  'friendly-errors-webpack-plugin': require('friendly-errors-webpack-plugin'),
-  'case-sensitive-paths-webpack-plugin': require('case-sensitive-paths-webpack-plugin'),
+  'terser-webpack-plugin': require('terser-webpack-plugin'),
+  'webpack-dev-server': require('webpack-dev-server'),
   'webpack-merge': require('webpack-merge'),
-  'copy-webpack-plugin': require('copy-webpack-plugin'),
-  'terser-webpack-plugin': require('terser-webpack-plugin')
+  'webpack-chain': require('webpack-chain')
 }

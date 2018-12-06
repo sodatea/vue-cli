@@ -36,7 +36,7 @@ module.exports = (api, options) => {
     const url = require('url')
     const path = require('path')
     const webpack = require('webpack')
-    const WebpackDevServer = require('webpack-dev-server')
+    const WebpackDevServer = require('@vue/cli-service-dependencies')['webpack-dev-server']
     const portfinder = require('@vue/cli-service-dependencies')['portfinder']
     const prepareURLs = require('../util/prepareURLs')
     const prepareProxy = require('../util/prepareProxy')
@@ -116,7 +116,7 @@ module.exports = (api, options) => {
           })
       const devClients = [
         // dev server client
-        require.resolve(`webpack-dev-server/client`) + sockjsUrl,
+        require.resolve('@vue/cli-service-dependencies/lib/webpack-dev-server-client') + sockjsUrl,
         // hmr client
         require.resolve(projectDevServerOptions.hotOnly
           ? 'webpack/hot/only-dev-server'

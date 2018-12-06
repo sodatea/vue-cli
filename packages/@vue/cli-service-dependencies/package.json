@@ -38,8 +38,12 @@
     "acorn": "^6.0.4",
     "acorn-walk": "^6.1.1",
     "address": "^1.0.3",
+    "case-sensitive-paths-webpack-plugin": "^2.1.2",
     "cliui": "^4.1.0",
+    "copy-webpack-plugin": "^4.6.0",
     "debug": "^4.1.0",
+    "file-loader": "^2.0.0",
+    "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^7.0.1",
     "globby": "^8.0.1",
     "hash-sum": "^1.0.2",
@@ -55,10 +59,12 @@
     "semver": "^5.6.0",
     "ssri": "^6.0.1",
     "string.prototype.padend": "^3.0.0",
-    "friendly-errors-webpack-plugin": "^1.7.0",
-    "case-sensitive-paths-webpack-plugin": "^2.1.2",
+    "terser-webpack-plugin": "^1.1.0",
+    "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4",
-    "copy-webpack-plugin": "^4.6.0",
-    "terser-webpack-plugin": "^1.1.0"
+    "webpack-chain": "^4.11.0"
+  },
+  "dependencies": {
+    "emitter": "^0.0.5"
   }
 }

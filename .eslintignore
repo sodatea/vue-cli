@@ -4,3 +4,4 @@ packages/test
 temp
 entry-wc.js
 dist
+cli-service-dependencies/lib

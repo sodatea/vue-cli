@@ -12,7 +12,7 @@ module.exports = (api, options) => {
     }
   }, args => {
     const { get } = require('@vue/cli-shared-utils')
-    const { toString } = require('webpack-chain')
+    const { toString } = require('@vue/cli-service-dependencies')['webpack-chain']
     const config = api.resolveWebpackConfig()
     const { _: paths, verbose } = args
 
