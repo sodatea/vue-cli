@@ -25,5 +25,6 @@ module.exports = {
   'terser-webpack-plugin': require('terser-webpack-plugin'),
   'webpack-dev-server': require('webpack-dev-server'),
   'webpack-merge': require('webpack-merge'),
-  'webpack-chain': require('webpack-chain')
+  'webpack-chain': require('webpack-chain'),
+  'webpack-bundle-analyzer': require('webpack-bundle-analyzer')
 }

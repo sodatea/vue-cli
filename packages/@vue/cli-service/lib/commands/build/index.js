@@ -159,7 +159,7 @@ async function build (args, api, options) {
   }
 
   if (args.report || args['report-json']) {
-    const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+    const { BundleAnalyzerPlugin } = require('@vue/cli-service-dependencies')['webpack-bundle-analyzer']
     modifyConfig(webpackConfig, config => {
       const bundleName = args.target !== 'app'
         ? config.output.filename.replace(/\.js$/, '-')
