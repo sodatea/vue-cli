@@ -97,6 +97,10 @@ module.exports = {
           {
             text: 'Changelog',
             link: 'https://github.com/vuejs/vue-cli/blob/dev/CHANGELOG.md'
+          },
+          {
+            text: 'v4',
+            link: 'https://v4.cli.vuejs.org'
           }
         ],
         sidebar: {
