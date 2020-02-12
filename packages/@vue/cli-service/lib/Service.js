@@ -142,7 +142,7 @@ module.exports = class Service {
   resolvePlugins (inlinePlugins, useBuiltIn) {
     const idToPlugin = id => ({
       id: id.replace(/^.\//, 'built-in:'),
-      apply: loadModule(id, this.pkgContext)
+      apply: id.startsWith('.') ? require(id) : loadModule(id, this.pkgContext)
     })
 
     let plugins
