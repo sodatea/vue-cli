@@ -142,7 +142,7 @@ module.exports = class Service {
   resolvePlugins (inlinePlugins, useBuiltIn) {
     const idToPlugin = id => ({
       id: id.replace(/^.\//, 'built-in:'),
-      apply: require(id)
+      apply: loadModule(id, this.pkgContext)
     })
 
     let plugins
@@ -174,7 +174,7 @@ module.exports = class Service {
           ) {
             let apply = () => {}
             try {
-              apply = require(id)
+              apply = loadModule(id, this.pkgContext)
             } catch (e) {
               warn(`Optional dependency ${id} is not installed.`)
             }
