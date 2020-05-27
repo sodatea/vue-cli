@@ -1,16 +1,7 @@
 version: 2.1
 
-executors:
-  linux:
-    docker:
-      - image: cimg/base:stable
-
 orbs:
-  node: circleci/node@2.0.0
-
-defaults: &defaults
-  executor: linux
-  working_directory: ~/project/vue
+  node: circleci/node@2.1.1
 
 workflow_filters: &filters
   filters:
@@ -18,116 +9,14 @@ workflow_filters: &filters
       ignore:
       - docs
 
-node_matrix: &node_matrix
-  matrix:
-    parameters:
-      node-version: ["10", "12", "14"]
-
-jobs:
-  install:
-    <<: *defaults
-    steps:
-      - checkout
-      - node/install:
-          node-version: << parameters.node-version >>
-          install-yarn: true
-      - restore_cache:
-          keys:
-            - v2-vue-cli-{{ checksum "yarn.lock" }}
-      - run: yarn --network-timeout 600000
-      - save_cache:
-          key: v2-vue-cli-{{ checksum "yarn.lock" }}
-          paths:
-            - node_modules/
-            - ~/.cache
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - project/vue
-            - .cache/Cypress
-
-  group-1:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: yarn test -p cli,cli-service,cli-shared-utils
-
-  group-2:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: yarn test 'ts(?:\w(?!E2e))+\.spec\.js$'
-
-  group-3:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: yarn lint-without-fix
-      - run: yarn check-links
-      - restore_cache:
-          keys:
-            # TODO: should use a more accurate cache key
-            - v2-vue-cli-offline-{{ checksum "yarn.lock" }}
-      - run: yarn config set yarn-offline-mirror ~/npm-packages-offline-cache
-      - run: yarn test -p cli-service-global,eslint,pwa,babel,babel-preset-app,vuex,router
-      - save_cache:
-          key: v2-vue-cli-offline-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/npm-packages-offline-cache
-
-  group-4:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: yarn test -p unit-mocha,unit-jest,e2e-cypress
-      # e2e-nightwatch was left out due to some unknown issues with selenium and the CI image
-      - run: yarn test tsPluginE2e
-
-  cli-ui:
-    <<: *defaults
-    steps:
-      - attach_workspace:
-          at: ~/
-      - run: cd packages/@vue/cli-ui && yarn test
-      - store_artifacts:
-          path: packages/@vue/cli-ui/tests/e2e/videos
-      - store_artifacts:
-          path: packages/@vue/cli-ui/tests/e2e/screenshots
-
 workflows:
-  version: 2
   test:
     jobs:
-      - install:
-          name: install-v<< matrix.node-version >>
-          <<: *node_matrix
-          <<: *filters
-      - group-1:
-          <<: *node_matrix
-          <<: *filters
-          requires:
-            - install-v<< matrix.node-version >>
-      - group-2:
-          <<: *node_matrix
-          <<: *filters
-          requires:
-            - install-v<< matrix.node-version >>
-      - group-3:
-          <<: *node_matrix
-          <<: *filters
-          requires:
-            - install-v<< matrix.node-version >>
-      - group-4:
-          <<: *node_matrix
-          <<: *filters
-          requires:
-            - install-v<< matrix.node-version >>
-      - cli-ui:
-          <<: *node_matrix
-          <<: *filters
-          requires:
-            - install-v<< matrix.node-version >>
+      - node/test:
+          matrix:
+            parameters:
+              version: ["10", "12", "14"]
+          version: << matrix.version >>
+          pkg-manager: yarn
+          run-command:
+              yarn test -p cli,cli-service,cli-shared-utils
