@@ -15,8 +15,8 @@ workflows:
       - node/test:
           matrix:
             parameters:
-              version: ["10", "12", "14"]
-          version: << matrix.version >>
+              version: ["10.20", "12.17", "14.3"]
+          version: v<< matrix.version >>
           pkg-manager: yarn
           run-command:
               yarn test -p cli,cli-service,cli-shared-utils
