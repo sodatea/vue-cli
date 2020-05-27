@@ -1,9 +1,16 @@
-version: 2
+version: 2.1
+
+executors:
+  linux:
+    docker:
+      - image: cimg/base:stable
+
+orbs:
+  node: circleci/node@2.0.0
 
 defaults: &defaults
+  executor: linux
   working_directory: ~/project/vue
-  docker:
-    - image: vuejs/ci
 
 workflow_filters: &filters
   filters:
@@ -11,11 +18,19 @@ workflow_filters: &filters
       ignore:
       - docs
 
+node_matrix: &node_matrix
+  matrix:
+    parameters:
+      node-version: ["10", "12", "14"]
+
 jobs:
   install:
     <<: *defaults
     steps:
       - checkout
+      - node/install:
+          node-version: << parameters.node-version >>
+          install-yarn: true
       - restore_cache:
           keys:
             - v2-vue-cli-{{ checksum "yarn.lock" }}
@@ -88,24 +103,31 @@ workflows:
   test:
     jobs:
       - install:
+          name: install-v<< matrix.node-version >>
+          <<: *node_matrix
           <<: *filters
       - group-1:
+          <<: *node_matrix
           <<: *filters
           requires:
-            - install
+            - install-v<< matrix.node-version >>
       - group-2:
+          <<: *node_matrix
           <<: *filters
           requires:
-            - install
+            - install-v<< matrix.node-version >>
       - group-3:
+          <<: *node_matrix
           <<: *filters
           requires:
-            - install
+            - install-v<< matrix.node-version >>
       - group-4:
+          <<: *node_matrix
           <<: *filters
           requires:
-            - install
+            - install-v<< matrix.node-version >>
       - cli-ui:
+          <<: *node_matrix
           <<: *filters
           requires:
-            - install
+            - install-v<< matrix.node-version >>
