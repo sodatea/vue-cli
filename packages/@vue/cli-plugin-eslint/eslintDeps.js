@@ -32,7 +32,7 @@ exports.getDeps = function (api, preset, rootOptions = {}) {
   const deps = Object.assign({}, DEPS_MAP.base, DEPS_MAP[preset])
 
   if (rootOptions.vueVersion === '3') {
-    Object.assign(deps, { 'eslint-plugin-vue': '^7.0.0-0' })
+    Object.assign(deps, { 'eslint-plugin-vue': '^7.2.0' })
   }
 
   if (api.hasPlugin('typescript')) {
